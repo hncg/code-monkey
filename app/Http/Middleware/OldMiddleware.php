@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use Response;
+use Request;
+use Route;
 class OldMiddleware
 {
     /**
@@ -15,8 +17,17 @@ class OldMiddleware
      */
     public function handle($request, Closure $next)
     {
-        echo "1";
+        $id = Route::input('id');
+        if($id <10 )
+        {
+            return Response::json('heh',401);
+        }
+        else
+        {
+        return $next($request);
+        }
+        // echo "1";
         // return response('Unauthorized!', 401);
-        return response()->redirectGuest('/',303);
+        // return Response::redirectGuest('/cgindex2',302);
     }
 }

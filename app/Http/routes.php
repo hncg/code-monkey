@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('hehe');
 });
-Route::get('/cgindex',['middleware' => 'age','IndexController@index1']);
+Route::get('/cgindex/{id}','IndexController@index1');
+Route::get('/cgindex2','IndexController@index2');
