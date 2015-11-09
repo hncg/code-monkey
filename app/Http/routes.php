@@ -14,5 +14,5 @@
 Route::get('/', function () {
     return view('hehe');
 });
-Route::get('/cgindex/{id}','IndexController@index1');
+Route::get('/cgindex/{id}','IndexController@index1')->where(array('id' => '[0-9]+',));
 Route::get('/cgindex2','IndexController@index2');
